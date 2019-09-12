@@ -31,4 +31,10 @@ public class Anggota {
         simpanan-=uang;
         
     }
+
+    public Anggota(String nama, String alamat, float simpanan) {
+        this.nama = nama;
+        this.alamat = alamat;
+        this.simpanan = simpanan;
+    }
 }
