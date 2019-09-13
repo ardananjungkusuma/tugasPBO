@@ -6,10 +6,8 @@ package js3;
  */
 public class KoperasiDemo {
     public static void main(String[] args) {
-        Anggota anggota1 = new Anggota();
+        Anggota anggota1 = new Anggota("Ardan","Bojonegoro");
         System.out.println("Simpanan "+anggota1.getNama()+" : Rp. "+anggota1.getSimpanan());
-        anggota1.setNama("Ardan Anjung Kusuma");
-        anggota1.setAlamat("Jalan Senggani 20");
         anggota1.setor(100000);
         System.out.println("Simpanan "+anggota1.getNama()+" : Rp "+anggota1.getSimpanan());
         anggota1.pinjam(5000);
