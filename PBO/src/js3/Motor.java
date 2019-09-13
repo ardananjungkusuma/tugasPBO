@@ -10,20 +10,24 @@ public class Motor {
     
     public void nyalakanMesin(){
         kontakOn=true;
+        kecepatan=0;
     }
     public void matikanMesin(){
         kontakOn=false;
+        kecepatan=0;
     }
     public void tambahKecepatan(){
         if(kontakOn==true){
-            kecepatan+=5;
+            kecepatan+=20;
+        }else if(kecepatan>=100){
+            System.out.println("Kecepatan Maksimal 100.");
         }else{
             System.out.println("Tidak dapat menambah kecepatan karena mesin mati");
         }            
     }
     public void kurangiKecepatan(){
         if(kontakOn==true){
-            kecepatan-=5;
+            kecepatan-=20;
         }else{
             System.out.println("Tidak dapat menambah kecepatan karena mesin mati");
         }
