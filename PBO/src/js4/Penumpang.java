@@ -7,7 +7,7 @@ package js4;
 public class Penumpang {
     private String ktp;
     private String nama;
-
+    
     public Penumpang(String ktp, String nama) {
         this.ktp = ktp;
         this.nama = nama;
