@@ -35,7 +35,6 @@ public class Gerbong {
         }else{
             System.out.println("Maaf kursi nomor "+nomer+" sudah ada orangnya, silahkan pilih kursi lain");
         }
-        
     }
     
     public String getKode() {

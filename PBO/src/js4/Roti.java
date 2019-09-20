@@ -53,6 +53,9 @@ public class Roti {
         this.hargaRoti = hargaRoti;
     }
     
-    
-    
+    public void info(){
+        System.out.println("==============================================");
+        System.out.println("\t\tDETAIL PESANAN ");
+        System.out.println("Pesanan : "+namaRoti+" rasa "+rasaRoti);
+    }
 }

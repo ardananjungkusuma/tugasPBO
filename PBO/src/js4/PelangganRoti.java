@@ -36,8 +36,11 @@ public class PelangganRoti {
         this.alamat = alamat;
     }
     
-    public void infoPelanggan(){
-        System.out.print("Nama Pelanggan : "+namaPelanggan);
-        System.out.print("Alamat : "+alamat);
+    public void info(){
+        System.out.println("==============================================");
+        System.out.println("\t\tDETAIL PEMESAN");
+        System.out.println("ID Pelanggan: "+idPelanggan);
+        System.out.println("Nama Pelanggan: "+namaPelanggan);
+        System.out.println("Alamat: "+alamat);
     }
 }

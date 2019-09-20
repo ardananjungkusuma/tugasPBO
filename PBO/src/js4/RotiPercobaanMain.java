@@ -1,5 +1,4 @@
 package js4;
-
 /**
  *
  * @author ardan
@@ -15,7 +14,7 @@ public class RotiPercobaanMain {
         Roti rotiDan = new Roti();
         
         System.out.println("==============================================");
-        System.out.println("Program Kasir Penjualan Roti");
+        System.out.println("\tProgram Kasir Ardan Dessert Store");
         System.out.println("==============================================");
         System.out.print("Id Kasir : ");
         String idKasir = sc.nextLine();
@@ -56,21 +55,11 @@ public class RotiPercobaanMain {
         System.out.print("Jumlah Roti yang Dipesan : ");
         int jumlahRotiDipesan = scInt.nextInt();
         pem.setJumlah(jumlahRotiDipesan);
-        System.out.println("");
-        System.out.println("==============================================");
-        System.out.println("KWITANSI");
-        System.out.println("==============================================");
-        System.out.println("ID Kasir : "+pg.getIdPegawai());
-        System.out.println("Nama Kasir : "+pg.getNamaPegawai());
-        System.out.println("================================================");
-        System.out.println("ID Pemesanan : "+pem.getIdPemesanan());
-        System.out.println("Tanggal Pemesanan : "+pem.getTanggalPemesanan());
-        System.out.println("================================================");
-        System.out.println("ID Pemesan : "+pr.getIdPelanggan());
-        System.out.println("Nama Pemesan : "+pr.getNamaPelanggan());
-        System.out.println("Alamat Pemesanan : "+pr.getAlamat());
-        System.out.print("Roti yang dipesan : "+rotiDan.getNamaRoti()+" Rasa "+rotiDan.getRasaRoti()+"\n");
-        System.out.println("================================================");
-        System.out.println("Total Rincian Harga : "+pem.hitungTotal(hargaRoti, jumlahRotiDipesan));
+        pem.setRoti(rotiDan);
+        pem.setPegawai(pg);
+        pem.setPelanggan(pr);
+        pem.info();
+        System.out.println("Total yang harus dibayar : "+pem.hitungTotal(hargaRoti, jumlahRotiDipesan));
+        System.out.println("~~~Terimakasih "+pr.getNamaPelanggan()+" Selamat Berbelanja Kembali~~~ ");
     }
 }

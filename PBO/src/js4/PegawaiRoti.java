@@ -28,4 +28,9 @@ public class PegawaiRoti {
         this.namaPegawai = namaPegawai;
     }
     
+    public void info(){
+        System.out.println("==============================================");
+        System.out.println("\t\tDETAIL PELAYANAN");
+        System.out.println("Nama Pegawai: "+namaPegawai);
+    }
 }

@@ -11,7 +11,7 @@ public class MainPercobaan4 {
         Penumpang p1 = new Penumpang("67890","Budie");
         
         gerbong.setPenumpang(p,3);
-        gerbong.setPenumpang(p1,5);
+        gerbong.setPenumpang(p1,4);
         System.out.println(gerbong.info());
     }
 }
