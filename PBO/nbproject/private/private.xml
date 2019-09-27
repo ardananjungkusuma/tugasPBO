@@ -3,14 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/ardan/NetBeansProjects/PBO/src/js4/Laptop.java</file>
-            <file>file:/home/ardan/NetBeansProjects/PBO/src/js4/PegawaiRoti.java</file>
-            <file>file:/home/ardan/NetBeansProjects/PBO/src/js4/Roti.java</file>
-            <file>file:/home/ardan/NetBeansProjects/PBO/src/js4/RotiPercobaanMain.java</file>
-            <file>file:/home/ardan/NetBeansProjects/PBO/src/js4/MainPercobaan1.java</file>
-            <file>file:/home/ardan/NetBeansProjects/PBO/src/js4/Processor.java</file>
-            <file>file:/home/ardan/NetBeansProjects/PBO/src/js4/PelangganRoti.java</file>
-            <file>file:/home/ardan/NetBeansProjects/PBO/src/js4/Pemesanan.java</file>
+            <file>file:/home/ardan/NetBeansProjects/PBO/src/jsInheritance/Leptop.java</file>
+            <file>file:/home/ardan/NetBeansProjects/PBO/src/jsInheritance/Staff.java</file>
+            <file>file:/home/ardan/NetBeansProjects/PBO/src/jsInheritance/Pc.java</file>
+            <file>file:/home/ardan/NetBeansProjects/PBO/src/jsInheritance/MainKomputer.java</file>
+            <file>file:/home/ardan/NetBeansProjects/PBO/src/jsInheritance/StaffHarian.java</file>
+            <file>file:/home/ardan/NetBeansProjects/PBO/src/jsInheritance/Komputer.java</file>
+            <file>file:/home/ardan/NetBeansProjects/PBO/src/jsInheritance/Mac.java</file>
+            <file>file:/home/ardan/NetBeansProjects/PBO/src/jsInheritance/Windows.java</file>
+            <file>file:/home/ardan/NetBeansProjects/PBO/src/jsInheritance/Inheritance1.java</file>
+            <file>file:/home/ardan/NetBeansProjects/PBO/src/jsInheritance/StaffTetap.java</file>
         </group>
     </open-files>
 </project-private>

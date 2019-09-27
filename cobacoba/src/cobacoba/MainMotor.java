@@ -51,7 +51,8 @@ public class MainMotor {
         } else if (tipeMotor == 2) {
             System.out.print("Nyalakan atau matikan mesin: \n1. Nyalakan\n2. Matikan\n>>");
             int pilih = scInt.nextInt();
-            if (pilih == 1) {
+            try{
+                if (pilih == 1) {
                 sM.nyalakanKontakMotor();
                 System.out.print("Masukan Status Kopling :\n1.None\n2.Full\n>>");
                 int statusKopling = scInt.nextInt();
@@ -70,18 +71,20 @@ public class MainMotor {
                     } else if (kecepatan == 2) {
                         m.kurangiKecepatan();
                     } else {
-                        System.out.print("Masukan Angka Yang sesuai");
+                        System.out.println("Masukan Angka Yang sesuai");
                     }
 
                 }
 
             } else if (pilih == 2) {
                 sM.matikanKontakMotor();
-                System.out.print("Maaf Mesin Mati, jadi tidak bisa tambah kecepatan");
+                System.out.println("Maaf Mesin Mati, jadi tidak bisa tambah kecepatan");
             } else {
-                System.out.print("Status tidak valid");
+                System.out.println("Status tidak valid");
             }
-
+            }catch(Exception e){
+                System.out.println("Error");
+            }
         }
 
         sM.setMesin(m);
