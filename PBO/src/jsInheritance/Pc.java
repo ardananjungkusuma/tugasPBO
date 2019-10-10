@@ -20,7 +20,4 @@ public class Pc extends Komputer{
         super.tampilData();
         System.out.println("Ukuran Monitor : "+ukuranMonitor);
     }
-
-    
-    
 }
