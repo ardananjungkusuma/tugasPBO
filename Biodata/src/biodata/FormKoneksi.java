@@ -5,9 +5,9 @@
  */
 package biodata;
 
-import com.sun.jdi.connect.spi.Connection;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,12 +16,43 @@ import javax.swing.JOptionPane;
 public class FormKoneksi extends javax.swing.JFrame {
 
     private static Connection koneksi;
+    private DefaultTableModel model;
 
     /**
      * Creates new form FormKoneksi
      */
     public FormKoneksi() {
         initComponents();
+        model = new DefaultTableModel();
+        this.jTable1.setModel(model);
+        model.addColumn("ID");
+        model.addColumn("Nama");
+        model.addColumn("Alamat");
+        model.addColumn("Telepon");
+        ambil_data_tabel();
+    }
+
+    private void ambil_data_tabel() {
+        model.getDataVector().removeAllElements();
+        model.fireTableDataChanged();
+        try {
+            buka_koneksi();
+            Statement s = koneksi.createStatement();
+            String sql = "Select * from anggota";
+            ResultSet r = s.executeQuery(sql);
+            while (r.next()) {
+                Object[] o = new Object[4];
+                o[0] = r.getString("id");
+                o[1] = r.getString("nama");
+                o[2] = r.getString("alamat");
+                o[3] = r.getString("telp");
+                model.addRow(o);
+            }
+            r.close();
+            s.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Terjadi kesalahan " + e.getMessage());
+        }
     }
 
     /**
@@ -164,14 +195,14 @@ public class FormKoneksi extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    private static void buka_koneksi() throws SQLException {
+    private static void buka_koneksi() {
         if (koneksi == null) {
             try {
-                String url = "jdbc:mysql://localhost:6606/biodataJs12";
+                String url = "jdbc:mysql://localhost:3306/biodataJs12";
                 String user = "root";
                 String password = "";
                 DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-                koneksi = (Connection) DriverManager.getConnection(url, user, password);
+                koneksi = DriverManager.getConnection(url, user, password);
             } catch (SQLException t) {
                 System.out.println("Error Membuat Koneksi");
             }
