@@ -10,9 +10,7 @@ package GameTebakTebakan;
  * @author ardan
  */
 import java.util.Scanner;
-public class TebakGame1 extends TebakDong {
-    Scanner sc = new Scanner(System.in);
-    UserTebak user;
+public class TebakGame extends TebakDong {
 
     @Override
     public int acakAngkanya() {

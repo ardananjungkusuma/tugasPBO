@@ -3,18 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GameTebakTebakan;
+package projectakhir;
 
 /**
  *
  * @author ardan
  */
-public abstract class TebakDong implements ITebak{
-    int temp;
-    
-    
-    @Override
-    public int acakAngkanya(){
-        return temp;
-    }
+public interface IBayar {
+    public abstract double bayarSekarang(double masukkan);
 }
