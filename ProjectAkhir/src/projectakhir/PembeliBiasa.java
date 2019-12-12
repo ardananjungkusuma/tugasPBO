@@ -7,7 +7,7 @@ package projectakhir;
 
 /**
  *
- * @author ardan
+ * @author ardan & wahyu
  */
 public class PembeliBiasa extends Pembeli{
     private String nama;

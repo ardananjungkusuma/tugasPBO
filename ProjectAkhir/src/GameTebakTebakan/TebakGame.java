@@ -7,9 +7,8 @@ package GameTebakTebakan;
 
 /**
  *
- * @author ardan
+ * @author ardan & wahyu
  */
-import java.util.Scanner;
 public class TebakGame extends TebakDong {
 
     @Override

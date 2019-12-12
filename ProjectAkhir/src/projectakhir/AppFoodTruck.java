@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author ardan
+ * @author ardan & wahyu
  */
 public class AppFoodTruck extends javax.swing.JFrame {
 
@@ -55,8 +55,8 @@ public class AppFoodTruck extends javax.swing.JFrame {
     Minuman thaiTea = new Minuman();
     Pembeli pembeliBiasa = new PembeliBiasa();
     Pembeli pembeliDiskon = new PembeliDiskon();
-    double totalHarga,finalHarga;
-    
+    double totalHarga, finalHarga;
+
     public Pembeli getPembeliBiasa() {
         return pembeliBiasa;
     }
@@ -104,13 +104,13 @@ public class AppFoodTruck extends javax.swing.JFrame {
     public void setTebakGame(TebakGame tebakGame) {
         this.tebakGame = tebakGame;
     }
-    
+
     /**
      * Creates new form NoteWaitress
      */
     public AppFoodTruck() {
         initComponents();
-        
+
         //aggregasi
         foodChurros.setMakanan(churros);
         foodTaiwanChick.setMakanan(taiwanChick);
@@ -252,6 +252,7 @@ public class AppFoodTruck extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
         jPanelPemesanan = new javax.swing.JPanel();
         idPemesanan = new javax.swing.JLabel();
         jCheckBoxChurros = new javax.swing.JCheckBox();
@@ -299,7 +300,6 @@ public class AppFoodTruck extends javax.swing.JFrame {
         jLabelCluedanJawaban = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabelKesempatan = new javax.swing.JLabel();
-        jLabelJawaban = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabelIsiTebakanAnda = new javax.swing.JLabel();
         jButtonTebak = new javax.swing.JButton();
@@ -308,75 +308,105 @@ public class AppFoodTruck extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanelHarga.setBackground(new java.awt.Color(204, 204, 255));
-        jPanelHarga.setForeground(new java.awt.Color(0, 0, 0));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel2.setText("\"Lezaaad FoodTruck Price List\"");
 
+        jLabel12.setFont(new java.awt.Font("Yu Gothic", 1, 13)); // NOI18N
         jLabel12.setText("1. Churros");
 
+        jLabel15.setFont(new java.awt.Font("Yu Gothic", 1, 13)); // NOI18N
         jLabel15.setText("Rasa : Cokelat, Vanilla, Oreo ");
 
+        jLabel16.setFont(new java.awt.Font("Yu Gothic", 1, 13)); // NOI18N
         jLabel16.setText("Size Box :");
 
+        jLabel20.setFont(new java.awt.Font("Yu Gothic", 1, 13)); // NOI18N
         jLabel20.setText("2. Taiwan Chicken");
 
+        jLabel21.setFont(new java.awt.Font("Yu Gothic", 1, 13)); // NOI18N
         jLabel21.setText("Rasa : Pedas Sekali, Pedas Santuy, Lada Hitam");
 
+        jLabel23.setFont(new java.awt.Font("Yu Gothic", 1, 13)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(204, 0, 0));
         jLabel23.setText("Small : 10.000   Medium : 15.000  Large : 22.000");
 
+        jLabel17.setFont(new java.awt.Font("Yu Gothic", 1, 13)); // NOI18N
         jLabel17.setText("3. Thai Tea");
 
+        jLabel24.setFont(new java.awt.Font("Yu Gothic", 1, 13)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(204, 0, 0));
         jLabel24.setText("Rasa : Greentea, Chocolate, Macha    10.000");
 
+        jLabel25.setFont(new java.awt.Font("Yu Gothic", 1, 13)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(204, 0, 0));
         jLabel25.setText("Small : 8.000   Medium : 13.000  Large : 18.000");
 
+        jLabel26.setFont(new java.awt.Font("Yu Gothic", 1, 13)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(204, 0, 0));
         jLabel26.setText("Topping : Oreo, Susu.  Harga Tambah 5.000");
 
-        jLabel30.setText("* Jika Anda Tidak Memilih Rasa Maupun Size Box, maka akan ");
+        jLabel30.setFont(new java.awt.Font("Yu Gothic", 1, 13)); // NOI18N
+        jLabel30.setText("* Jika Anda Tidak Memilih Rasa Maupun Size Box, ");
 
-        jLabel31.setText("kami set Rasa Cokelat dan Size Small.");
+        jLabel31.setFont(new java.awt.Font("Yu Gothic", 1, 13)); // NOI18N
+        jLabel31.setText("maka kami set Rasa Cokelat dan Size Small.");
 
-        jLabel32.setText("* Jika Anda Tidak Memilih Rasa Maupun Size Box, maka akan ");
+        jLabel32.setFont(new java.awt.Font("Yu Gothic", 1, 13)); // NOI18N
+        jLabel32.setText("* Jika Anda Tidak Memilih Rasa Maupun Size Box, ");
 
-        jLabel33.setText("kami set Rasa Pedas Santuy dan Size Small.");
+        jLabel33.setFont(new java.awt.Font("Yu Gothic", 1, 13)); // NOI18N
+        jLabel33.setText("maka kami set Rasa Pedas Santuy dan Size Small.");
 
-        jLabel34.setText("* Rasa Akan Kami Set Chocolate Jika Anda Tidak Memilih");
+        jLabel34.setFont(new java.awt.Font("Yu Gothic", 1, 13)); // NOI18N
+        jLabel34.setText("* Kami Set Chocolate Jika Anda Tidak Memilih Rasa.");
 
+        jLabel35.setFont(new java.awt.Font("Yu Gothic", 1, 13)); // NOI18N
         jLabel35.setText("Size Box :");
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectakhir/3558109-delivery-dogs-food-hot-street-truck_107840.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanelHargaLayout = new javax.swing.GroupLayout(jPanelHarga);
         jPanelHarga.setLayout(jPanelHargaLayout);
         jPanelHargaLayout.setHorizontalGroup(
             jPanelHargaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelHargaLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanelHargaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel30)
-                    .addComponent(jLabel31)
-                    .addGroup(jPanelHargaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel23))
-                    .addComponent(jLabel25)
-                    .addComponent(jLabel32)
-                    .addComponent(jLabel33)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel24)
-                    .addComponent(jLabel26)
-                    .addComponent(jLabel34)
-                    .addComponent(jLabel35))
-                .addContainerGap(16, Short.MAX_VALUE))
+                    .addGroup(jPanelHargaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanelHargaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel30)
+                            .addComponent(jLabel31)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel33)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel34)
+                            .addComponent(jLabel35)
+                            .addGroup(jPanelHargaLayout.createSequentialGroup()
+                                .addGap(97, 97, 97)
+                                .addComponent(jLabel22))))
+                    .addGroup(jPanelHargaLayout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(jLabel2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelHargaLayout.setVerticalGroup(
             jPanelHargaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelHargaLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel15)
@@ -416,8 +446,11 @@ public class AppFoodTruck extends javax.swing.JFrame {
         jPanelPemesanan.setBackground(new java.awt.Color(153, 204, 255));
         jPanelPemesanan.setForeground(new java.awt.Color(0, 204, 204));
 
+        idPemesanan.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        idPemesanan.setForeground(new java.awt.Color(255, 0, 51));
         idPemesanan.setText("ID Pemesanan");
 
+        jCheckBoxChurros.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jCheckBoxChurros.setText("Churros");
         jCheckBoxChurros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -425,6 +458,7 @@ public class AppFoodTruck extends javax.swing.JFrame {
             }
         });
 
+        jCheckBoxThaiTea.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jCheckBoxThaiTea.setText("Thai Tea");
         jCheckBoxThaiTea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -432,6 +466,7 @@ public class AppFoodTruck extends javax.swing.JFrame {
             }
         });
 
+        jCheckBoxTaiwanChicken.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jCheckBoxTaiwanChicken.setText("Taiwan Chicken");
         jCheckBoxTaiwanChicken.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -439,14 +474,19 @@ public class AppFoodTruck extends javax.swing.JFrame {
             }
         });
 
+        jRButtonCokelat.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jRButtonCokelat.setText("Cokelat");
 
+        jRButtonVanila.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jRButtonVanila.setText("Vanilla");
 
+        jRButtonOreo.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jRButtonOreo.setText("Oreo");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel3.setText("Rasa :");
 
+        jRadioButtonPedasBadai.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jRadioButtonPedasBadai.setText("Pedas Sekali");
         jRadioButtonPedasBadai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -454,18 +494,25 @@ public class AppFoodTruck extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel4.setText("Rasa :");
 
+        jRadioButtonLadaHitam.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jRadioButtonLadaHitam.setText("Lada Hitam");
 
+        jRadioButtonPedasSantuy.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jRadioButtonPedasSantuy.setText("Pedas Santuy");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel5.setText("Rasa :");
 
+        jRadioButtonGreentea.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jRadioButtonGreentea.setText("Greentea");
 
+        jRadioButtonChocolate.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jRadioButtonChocolate.setText("Chocolate");
 
+        jRadioButtonMacha.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jRadioButtonMacha.setText("Macha");
 
         jButtonOrderNow.setBackground(new java.awt.Color(255, 51, 51));
@@ -477,11 +524,13 @@ public class AppFoodTruck extends javax.swing.JFrame {
             }
         });
 
+        jTextAreaOrder.setBackground(new java.awt.Color(204, 204, 255));
         jTextAreaOrder.setColumns(20);
         jTextAreaOrder.setRows(5);
         jTextAreaOrder.setText("--Anda Belum Melakukan Pemesanan--");
         jScrollPane1.setViewportView(jTextAreaOrder);
 
+        jLabel6.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 13)); // NOI18N
         jLabel6.setText("Your Order");
 
         jLabel1.setText("ID Pembelian :");
@@ -494,8 +543,10 @@ public class AppFoodTruck extends javax.swing.JFrame {
             }
         });
 
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel13.setText("SizeBox :");
 
+        jRadioButtonSmallC.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jRadioButtonSmallC.setText("Small");
         jRadioButtonSmallC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -503,12 +554,16 @@ public class AppFoodTruck extends javax.swing.JFrame {
             }
         });
 
+        jRadioButtonMediumC.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jRadioButtonMediumC.setText("Medium");
 
+        jRadioButtonLargeC.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jRadioButtonLargeC.setText("Large");
 
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel14.setText("SizeBox :");
 
+        jRadioButtonSmallT.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jRadioButtonSmallT.setText("Small");
         jRadioButtonSmallT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -516,14 +571,19 @@ public class AppFoodTruck extends javax.swing.JFrame {
             }
         });
 
+        jRadioButtonMediumT.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jRadioButtonMediumT.setText("Medium");
 
+        jRadioButtonLargeT.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jRadioButtonLargeT.setText("Large");
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel10.setText("Topping :");
 
+        jRadioButtonOreo.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jRadioButtonOreo.setText("Oreo");
 
+        jRadioButtonSusu.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jRadioButtonSusu.setText("Susu");
 
         javax.swing.GroupLayout jPanelPemesananLayout = new javax.swing.GroupLayout(jPanelPemesanan);
@@ -531,8 +591,27 @@ public class AppFoodTruck extends javax.swing.JFrame {
         jPanelPemesananLayout.setHorizontalGroup(
             jPanelPemesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPemesananLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
                 .addGroup(jPanelPemesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                    .addGroup(jPanelPemesananLayout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jRadioButtonSmallT)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonMediumT)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonLargeT))
+                    .addGroup(jPanelPemesananLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonPedasBadai)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRadioButtonPedasSantuy)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonLadaHitam)
+                        .addGap(30, 30, 30))))
+            .addGroup(jPanelPemesananLayout.createSequentialGroup()
+                .addGroup(jPanelPemesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelPemesananLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1)
@@ -540,23 +619,6 @@ public class AppFoodTruck extends javax.swing.JFrame {
                         .addComponent(idPemesanan))
                     .addComponent(jCheckBoxChurros)
                     .addComponent(jCheckBoxThaiTea)
-                    .addGroup(jPanelPemesananLayout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addGroup(jPanelPemesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelPemesananLayout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButtonSmallT)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButtonMediumT)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButtonLargeT))
-                            .addGroup(jPanelPemesananLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButtonPedasBadai)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButtonPedasSantuy))))
                     .addGroup(jPanelPemesananLayout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -587,29 +649,25 @@ public class AppFoodTruck extends javax.swing.JFrame {
                             .addComponent(jCheckBoxTaiwanChicken))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelPemesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelPemesananLayout.createSequentialGroup()
-                                .addGroup(jPanelPemesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRButtonVanila)
-                                    .addComponent(jRadioButtonMediumC))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanelPemesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButtonLargeC)
-                                    .addComponent(jRButtonOreo)))
-                            .addGroup(jPanelPemesananLayout.createSequentialGroup()
-                                .addGap(123, 123, 123)
-                                .addComponent(jRadioButtonLadaHitam)))))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPemesananLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(jRButtonVanila)
+                            .addComponent(jRadioButtonMediumC))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelPemesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButtonLargeC)
+                            .addComponent(jRButtonOreo)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelPemesananLayout.createSequentialGroup()
                 .addGroup(jPanelPemesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelPemesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPemesananLayout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addGap(157, 157, 157))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPemesananLayout.createSequentialGroup()
-                            .addComponent(jButtonOrderNow, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(35, 35, 35)))))
+                    .addGroup(jPanelPemesananLayout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(jLabel6))
+                    .addGroup(jPanelPemesananLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanelPemesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonOrderNow, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelPemesananLayout.setVerticalGroup(
             jPanelPemesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -659,14 +717,14 @@ public class AppFoodTruck extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(jRadioButtonOreo)
                     .addComponent(jRadioButtonSusu))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonOrderNow)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonTotalPrice)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(13, 13, 13)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -682,12 +740,13 @@ public class AppFoodTruck extends javax.swing.JFrame {
 
         jLabel11.setText("ID Game :");
 
+        idPemesanan1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        idPemesanan1.setForeground(new java.awt.Color(255, 0, 51));
         idPemesanan1.setText("ID Pemesanan");
 
         jLabel18.setText("Tebakan Anda :");
 
         jButtonMulai.setBackground(new java.awt.Color(255, 153, 153));
-        jButtonMulai.setForeground(new java.awt.Color(0, 0, 0));
         jButtonMulai.setText("Mulai Game");
         jButtonMulai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -701,7 +760,7 @@ public class AppFoodTruck extends javax.swing.JFrame {
         jLabelCluedanJawaban.setBackground(new java.awt.Color(255, 0, 0));
         jLabelCluedanJawaban.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         jLabelCluedanJawaban.setForeground(new java.awt.Color(255, 0, 0));
-        jLabelCluedanJawaban.setText("CLUE DAN JAWABAN DISINI");
+        jLabelCluedanJawaban.setText("ANDA AKAN MENDAPATKAN CLUE DISINI");
 
         jLabel28.setText("Kesempatan Menebak Tersisa :");
 
@@ -709,8 +768,6 @@ public class AppFoodTruck extends javax.swing.JFrame {
         jLabelKesempatan.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabelKesempatan.setForeground(new java.awt.Color(255, 0, 51));
         jLabelKesempatan.setText("5");
-
-        jLabelJawaban.setText("jawab");
 
         jLabel29.setText("Hasil Tebakan Terakhir : ");
 
@@ -761,21 +818,17 @@ public class AppFoodTruck extends javax.swing.JFrame {
                         .addGroup(jPanelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelGameLayout.createSequentialGroup()
                                 .addComponent(jLabel19)
-                                .addGap(7, 7, 7)
-                                .addComponent(jLabelCluedanJawaban)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelCluedanJawaban))
                             .addGroup(jPanelGameLayout.createSequentialGroup()
                                 .addComponent(jLabel28)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabelKesempatan)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel27)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelJawaban)))
-                        .addContainerGap())
-                    .addGroup(jPanelGameLayout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(jButtonTebak, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel27))
+                            .addGroup(jPanelGameLayout.createSequentialGroup()
+                                .addGap(95, 95, 95)
+                                .addComponent(jButtonTebak, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanelGameLayout.setVerticalGroup(
@@ -791,20 +844,14 @@ public class AppFoodTruck extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
-                .addGroup(jPanelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelGameLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonMulai)
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel28)
-                            .addComponent(jLabelKesempatan)
-                            .addComponent(jLabel27))
-                        .addGap(7, 7, 7))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelGameLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jLabelJawaban)
-                        .addGap(20, 20, 20)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonMulai)
+                .addGap(16, 16, 16)
+                .addGroup(jPanelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(jLabelKesempatan)
+                    .addComponent(jLabel27))
+                .addGap(10, 10, 10)
                 .addGroup(jPanelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
                     .addComponent(jTextTebakanAnda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -818,7 +865,7 @@ public class AppFoodTruck extends javax.swing.JFrame {
                 .addGroup(jPanelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelCluedanJawaban)
                     .addComponent(jLabel19))
-                .addContainerGap(447, Short.MAX_VALUE))
+                .addContainerGap(353, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Game Diskon", jPanelGame);
@@ -866,7 +913,7 @@ public class AppFoodTruck extends javax.swing.JFrame {
         jTextTebakanAnda.setEditable(true);
         setTebakGame(tebakGame);
         tebakan = getTebakGame().acakAngkanya();
-        jLabelJawaban.setText(String.valueOf(tebakan));// Untuk tau jawabannya, kalo sudah fix baru dihapus
+        //jLabelJawaban.setText(String.valueOf(tebakan));Untuk tau jawabannya, kalo sudah fix baru dihapus
         jButtonMulai.setEnabled(false);
     }//GEN-LAST:event_jButtonMulaiActionPerformed
 
@@ -969,7 +1016,7 @@ public class AppFoodTruck extends javax.swing.JFrame {
                 foodTaiwanChick.getMakanan().setSize("Small");
                 foodTaiwanChick.getMakanan().setHarga(8000);
             }
-        }else{
+        } else {
             foodTaiwanChick.getMakanan().setHarga(0);
         }
 
@@ -1008,14 +1055,14 @@ public class AppFoodTruck extends javax.swing.JFrame {
             if (jCheckBoxChurros.isSelected() || jCheckBoxTaiwanChicken.isSelected() || jCheckBoxThaiTea.isSelected()) {
                 info += "Makanan : \n";
                 if (jCheckBoxChurros.isSelected()) {
-                    info += "++ Churros Rasa " + foodChurros.getMakanan().getRasa() + " Size " + foodChurros.getMakanan().getSize()+ "\n";
+                    info += "++ Churros Rasa " + foodChurros.getMakanan().getRasa() + " Size " + foodChurros.getMakanan().getSize() + "\n";
                 }
                 if (jCheckBoxTaiwanChicken.isSelected()) {
-                    info += "++ Taiwan Chick Rasa " + foodTaiwanChick.getMakanan().getRasa()+ " Size " + foodTaiwanChick.getMakanan().getSize() + "\n"; 
+                    info += "++ Taiwan Chick Rasa " + foodTaiwanChick.getMakanan().getRasa() + " Size " + foodTaiwanChick.getMakanan().getSize() + "\n";
                 }
                 if (jCheckBoxThaiTea.isSelected()) {
                     info += "Minuman : \n";
-                    info += "++ Thai Tea " + drinkThaiTea.getMinuman().getRasa()+ " " + drinkThaiTea.getMinuman().getTopping();
+                    info += "++ Thai Tea " + drinkThaiTea.getMinuman().getRasa() + " " + drinkThaiTea.getMinuman().getTopping();
                 }
             }
             jTextAreaOrder.setText(info);
@@ -1026,9 +1073,8 @@ public class AppFoodTruck extends javax.swing.JFrame {
         if (b instanceof PembeliBiasa) {
             PembeliBiasa pb = (PembeliBiasa) b;
             finalHarga = pb.bayarSekarang(totalHarga);
-            
-        }
-        else if (b instanceof PembeliDiskon) {
+
+        } else if (b instanceof PembeliDiskon) {
             PembeliDiskon pd = (PembeliDiskon) b;
             finalHarga = pd.bayarSekarang(totalHarga);
         }
@@ -1042,8 +1088,8 @@ public class AppFoodTruck extends javax.swing.JFrame {
         } else {
             hasilBayar(pembeliBiasa);
         }
-        info = "Total Harga Awal : Rp. "+totalHarga+"\n";
-        info += "Total Harga Akhir: Rp. " + finalHarga;
+        info = "Rincian Harga Final\nTotal Harga Awal : Rp. " + totalHarga + "\n";
+        info += "Total Harga Bayar : Rp. " + finalHarga;
         JOptionPane.showMessageDialog(this, info);
     }//GEN-LAST:event_jButtonTotalPriceActionPerformed
 
@@ -1107,6 +1153,7 @@ public class AppFoodTruck extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -1129,7 +1176,6 @@ public class AppFoodTruck extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelCluedanJawaban;
     private javax.swing.JLabel jLabelIsiTebakanAnda;
-    private javax.swing.JLabel jLabelJawaban;
     private javax.swing.JLabel jLabelKesempatan;
     private javax.swing.JPanel jPanelGame;
     private javax.swing.JPanel jPanelHarga;

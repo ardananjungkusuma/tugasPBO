@@ -7,7 +7,7 @@ package GameTebakTebakan;
 
 /**
  *
- * @author ardan
+ * @author ardan & wahyu
  */
 public abstract class TebakDong implements ITebak{
     int temp;

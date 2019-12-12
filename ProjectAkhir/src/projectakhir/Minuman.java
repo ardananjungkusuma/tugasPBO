@@ -7,7 +7,7 @@ package projectakhir;
 
 /**
  *
- * @author ardan
+ * @author ardan & wahyu
  */
 public class Minuman {
     private double harga;

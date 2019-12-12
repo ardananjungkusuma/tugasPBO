@@ -7,7 +7,7 @@ package GameTebakTebakan;
 
 /**
  *
- * @author ardan
+ * @author ardan & wahyu
  */
 public interface ITebak {
     public abstract int acakAngkanya();

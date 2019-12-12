@@ -7,7 +7,7 @@ package projectakhir;
 
 /**
  *
- * @author ardan
+ * @author ardan & wahyu
  */
 public abstract class Pembeli implements IBayar{
     private String nama;
