@@ -308,6 +308,7 @@ public class AppFoodTruck extends javax.swing.JFrame {
         jLabel37 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Lezaad FoodTruck App");
 
         jPanelHarga.setBackground(new java.awt.Color(204, 204, 255));
 
