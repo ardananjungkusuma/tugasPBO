@@ -12,7 +12,6 @@ package projectakhir;
 public class FoodTruck {
     private String jamBuka;
     private String jamTutup;
-    private String namaRestoran;
     private Makanan makanan;
     private Minuman minuman;
     
@@ -34,14 +33,6 @@ public class FoodTruck {
 
     public void setJamTutup(String jamTutup) {
         this.jamTutup = jamTutup;
-    }
-
-    public String getNamaRestoran() {
-        return namaRestoran;
-    }
-
-    public void setNamaRestoran(String namaRestoran) {
-        this.namaRestoran = namaRestoran;
     }
 
     public Makanan getMakanan() {

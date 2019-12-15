@@ -20,8 +20,6 @@ public abstract class Pembeli implements IBayar{
         this.nama = nama;
     }
     
-    
-    
     @Override
     public double bayarSekarang(double masukan) {
         double totalBayar = 0;

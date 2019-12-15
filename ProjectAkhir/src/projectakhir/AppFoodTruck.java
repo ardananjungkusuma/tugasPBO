@@ -8,7 +8,11 @@ package projectakhir;
 import GameTebakTebakan.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.text.NumberFormat;
 import javax.swing.ButtonGroup;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,10 +20,32 @@ import javax.swing.JOptionPane;
  * @author ardan & wahyu
  */
 public class AppFoodTruck extends javax.swing.JFrame {
-
+    
+    FoodTruck jam = new FoodTruck();
     FoodTruck foodChurros = new FoodTruck();
     FoodTruck foodTaiwanChick = new FoodTruck();
     FoodTruck drinkThaiTea = new FoodTruck();
+    Makanan churros = new Makanan();
+    Makanan taiwanChick = new Makanan();
+    Minuman thaiTea = new Minuman();
+    
+    String info;
+    int randomIdBuy = (int) (Math.random() * 1000);
+    TebakGame tebakGame = new TebakGame();
+    int tebakan;
+    int jumlahtebakan = 5;
+    boolean dapetDiskon;
+    Pembeli pembeliBiasa = new PembeliBiasa();
+    Pembeli pembeliDiskon = new PembeliDiskon();
+    double totalHarga, finalHarga;
+
+    public FoodTruck getJam() {
+        return jam;
+    }
+
+    public void setJam(FoodTruck jam) {
+        this.jam = jam;
+    }
 
     public FoodTruck getFoodChurros() {
         return foodChurros;
@@ -44,18 +70,6 @@ public class AppFoodTruck extends javax.swing.JFrame {
     public void setDrinkThaiTea(FoodTruck drinkThaiTea) {
         this.drinkThaiTea = drinkThaiTea;
     }
-    String info;
-    int randomIdBuy = (int) (Math.random() * 1000);
-    TebakGame tebakGame = new TebakGame();
-    int tebakan;
-    int jumlahtebakan = 5;
-    boolean dapetDiskon;
-    Makanan churros = new Makanan();
-    Makanan taiwanChick = new Makanan();
-    Minuman thaiTea = new Minuman();
-    Pembeli pembeliBiasa = new PembeliBiasa();
-    Pembeli pembeliDiskon = new PembeliDiskon();
-    double totalHarga, finalHarga;
 
     public Pembeli getPembeliBiasa() {
         return pembeliBiasa;
@@ -110,12 +124,20 @@ public class AppFoodTruck extends javax.swing.JFrame {
      */
     public AppFoodTruck() {
         initComponents();
-
+        
+        //jam buka jam tutup
+        jam.setJamBuka("10.00");
+        jam.setJamTutup("21.00");
+        txtJamBuka.setText(jam.getJamBuka());
+        txtJamTutup.setText(jam.getJamTutup());
+        
         //aggregasi
         foodChurros.setMakanan(churros);
         foodTaiwanChick.setMakanan(taiwanChick);
         drinkThaiTea.setMinuman(thaiTea);
         jButtonTotalPrice.setEnabled(false);
+        
+        //fungsi button group agar hanya bisa dichecklist 1 saja dari ketiga menu
         ButtonGroup groupSizeTaiwanChick = new ButtonGroup();
         ButtonGroup groupRasaChurros = new ButtonGroup();
         ButtonGroup groupSizeChurros = new ButtonGroup();
@@ -123,9 +145,14 @@ public class AppFoodTruck extends javax.swing.JFrame {
         ButtonGroup groupRasaThaiTea = new ButtonGroup();
         ButtonGroup groupTopping = new ButtonGroup();
 
+        //fungsi idPembelianDanGame untuk merandom id pembelian dan id game
         int idPembelianDanGame = randomIdBuy;
+        
+        //fungsinya untuk set angka random, String.valueOf fungsinya untuk mengkonversi idPembelianGame menjadi String
         idPemesanan.setText(String.valueOf(idPembelianDanGame));
         idPemesanan1.setText(String.valueOf(idPembelianDanGame));
+        
+        
         jTextAreaOrder.setEditable(false);
         jRButtonCokelat.setEnabled(false);
         jRButtonOreo.setEnabled(false);
@@ -146,6 +173,7 @@ public class AppFoodTruck extends javax.swing.JFrame {
         jRadioButtonSusu.setEnabled(false);
         jRadioButtonOreo.setEnabled(false);
 
+        //fungsi untuk menggroupkan button button
         groupRasaChurros.add(jRButtonCokelat);
         groupRasaChurros.add(jRButtonVanila);
         groupRasaChurros.add(jRButtonOreo);
@@ -163,7 +191,8 @@ public class AppFoodTruck extends javax.swing.JFrame {
         groupRasaThaiTea.add(jRadioButtonMacha);
         groupTopping.add(jRadioButtonSusu);
         groupTopping.add(jRadioButtonOreo);
-
+        
+        //item listener berfungsi untuk mengecek setiap checkbox (sudah dicentang atau belum)
         jCheckBoxChurros.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent ie) {
@@ -181,9 +210,12 @@ public class AppFoodTruck extends javax.swing.JFrame {
                     jRadioButtonSmallC.setEnabled(false);
                     jRadioButtonMediumC.setEnabled(false);
                     jRadioButtonLargeC.setEnabled(false);
+                    groupRasaChurros.clearSelection();
+                    groupSizeChurros.clearSelection();
                 }
             }
         });
+        
         jCheckBoxTaiwanChicken.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent ie) {
@@ -201,9 +233,12 @@ public class AppFoodTruck extends javax.swing.JFrame {
                     jRadioButtonSmallT.setEnabled(false);
                     jRadioButtonMediumT.setEnabled(false);
                     jRadioButtonLargeT.setEnabled(false);
+                    groupSizeTaiwanChick.clearSelection();
+                    groupRasaTaiwanChick.clearSelection();
                 }
             }
         });
+        
         jCheckBoxThaiTea.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent ie) {
@@ -219,9 +254,12 @@ public class AppFoodTruck extends javax.swing.JFrame {
                     jRadioButtonMacha.setEnabled(false);
                     jRadioButtonSusu.setEnabled(false);
                     jRadioButtonOreo.setEnabled(false);
+                    groupRasaThaiTea.clearSelection();
+                    groupTopping.clearSelection();
                 }
             }
         });
+        jButtonTebak.setEnabled(false);
     }
 
     /**
@@ -253,6 +291,10 @@ public class AppFoodTruck extends javax.swing.JFrame {
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        txtJamBuka = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        txtJamTutup = new javax.swing.JLabel();
         jPanelPemesanan = new javax.swing.JPanel();
         idPemesanan = new javax.swing.JLabel();
         jCheckBoxChurros = new javax.swing.JCheckBox();
@@ -306,6 +348,7 @@ public class AppFoodTruck extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
+        kunciJawaban = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lezaad FoodTruck App");
@@ -372,6 +415,14 @@ public class AppFoodTruck extends javax.swing.JFrame {
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectakhir/3558109-delivery-dogs-food-hot-street-truck_107840.png"))); // NOI18N
 
+        jLabel38.setText("Jam Operasional : ");
+
+        txtJamBuka.setText("jambuka");
+
+        jLabel40.setText("-");
+
+        txtJamTutup.setText("jamtutup");
+
         javax.swing.GroupLayout jPanelHargaLayout = new javax.swing.GroupLayout(jPanelHarga);
         jPanelHarga.setLayout(jPanelHargaLayout);
         jPanelHargaLayout.setHorizontalGroup(
@@ -398,11 +449,20 @@ public class AppFoodTruck extends javax.swing.JFrame {
                             .addComponent(jLabel34)
                             .addComponent(jLabel35)))
                     .addGroup(jPanelHargaLayout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(jLabel22))
+                    .addGroup(jPanelHargaLayout.createSequentialGroup()
                         .addGap(95, 95, 95)
                         .addComponent(jLabel2))
                     .addGroup(jPanelHargaLayout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(jLabel22)))
+                        .addContainerGap()
+                        .addComponent(jLabel38)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtJamBuka)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel40)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtJamTutup)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanelHargaLayout.setVerticalGroup(
@@ -411,8 +471,14 @@ public class AppFoodTruck extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelHargaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel38)
+                    .addComponent(txtJamBuka)
+                    .addComponent(jLabel40)
+                    .addComponent(txtJamTutup))
+                .addGap(3, 3, 3)
                 .addComponent(jLabel22)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel15)
@@ -806,9 +872,22 @@ public class AppFoodTruck extends javax.swing.JFrame {
         jPanelGameLayout.setHorizontalGroup(
             jPanelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelGameLayout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(jLabel8)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelGameLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel37)
+                .addGap(122, 122, 122))
+            .addGroup(jPanelGameLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelGameLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(83, 83, 83)
+                        .addComponent(jButtonMulai, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(kunciJawaban))
+                    .addGroup(jPanelGameLayout.createSequentialGroup()
                         .addGroup(jPanelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelGameLayout.createSequentialGroup()
                                 .addComponent(jLabel11)
@@ -831,26 +910,16 @@ public class AppFoodTruck extends javax.swing.JFrame {
                             .addGroup(jPanelGameLayout.createSequentialGroup()
                                 .addGap(85, 85, 85)
                                 .addComponent(jButtonTebak, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelGameLayout.createSequentialGroup()
-                                .addGap(83, 83, 83)
-                                .addComponent(jButtonMulai, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel36)
                             .addGroup(jPanelGameLayout.createSequentialGroup()
                                 .addGroup(jPanelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel29)
                                     .addComponent(jLabel18))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabelIsiTebakanAnda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextTebakanAnda, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanelGameLayout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(jLabel8)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelGameLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel37)
-                .addGap(122, 122, 122))
+                                .addGroup(jPanelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelIsiTebakanAnda)
+                                    .addComponent(jTextTebakanAnda))))
+                        .addContainerGap())))
         );
         jPanelGameLayout.setVerticalGroup(
             jPanelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -868,7 +937,9 @@ public class AppFoodTruck extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonMulai)
+                .addGroup(jPanelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonMulai)
+                    .addComponent(kunciJawaban))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
@@ -890,7 +961,7 @@ public class AppFoodTruck extends javax.swing.JFrame {
                     .addComponent(jLabel19))
                 .addGap(58, 58, 58)
                 .addComponent(jLabel37)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Dapatkan DISKON 50% !!!", jPanelGame);
@@ -935,8 +1006,10 @@ public class AppFoodTruck extends javax.swing.JFrame {
 
     private void jButtonMulaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMulaiActionPerformed
         // TODO add your handling code here:
+        jButtonTebak.setEnabled(true);
         jTextTebakanAnda.setEditable(true);
         setTebakGame(tebakGame);
+        //tebakan untuk mendapat hasil acak angka
         tebakan = getTebakGame().acakAngkanya();
         //jLabelJawaban.setText(String.valueOf(tebakan));Untuk tau jawabannya, kalo sudah fix baru dihapus
         jButtonMulai.setEnabled(false);
@@ -944,11 +1017,16 @@ public class AppFoodTruck extends javax.swing.JFrame {
 
     private void jButtonTebakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTebakActionPerformed
         // TODO add your handling code here:
+        
         String tebakanTerakhir = jTextTebakanAnda.getText();
         jLabelIsiTebakanAnda.setText(tebakanTerakhir);
+        
         String nebak = jTextTebakanAnda.getText();
+        
         jumlahtebakan = jumlahtebakan - 1;
         jLabelKesempatan.setText(String.valueOf(jumlahtebakan));
+//        kunciJawaban.setText(String.valueOf(tebakan));
+        
         if (Integer.parseInt(nebak) == tebakan) {
             if (jumlahtebakan > 0) {
                 jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectakhir/win.png")));
@@ -957,10 +1035,6 @@ public class AppFoodTruck extends javax.swing.JFrame {
                 dapetDiskon = true;
                 jButtonTebak.setEnabled(false);
                 dapetDiskon = true;
-            } else {
-                jLabelCluedanJawaban.setText("Maaf Anda Gagal Mendapat Diskon 50%");
-                jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectakhir/lose.png")));
-                jButtonTebak.setEnabled(false);
             }
         } else if (Integer.parseInt(nebak) < tebakan) {
             if (jumlahtebakan > 0) {
@@ -1078,7 +1152,8 @@ public class AppFoodTruck extends javax.swing.JFrame {
         }
 
         if (jCheckBoxThaiTea.isSelected() == false && jCheckBoxChurros.isSelected() == false && jCheckBoxTaiwanChicken.isSelected() == false) {
-            info = "Pesen Dulu Bos";
+            info = "Pesen Terlebih Dahulu";
+            jTextAreaOrder.setText(info);
 
         } else {
             info = "-----Pesanan Anda-----\n";
@@ -1092,7 +1167,13 @@ public class AppFoodTruck extends javax.swing.JFrame {
                 }
                 if (jCheckBoxThaiTea.isSelected()) {
                     info += "Minuman : \n";
-                    info += "~~Thai Tea " + drinkThaiTea.getMinuman().getRasa() + " " + drinkThaiTea.getMinuman().getTopping();
+                    if(drinkThaiTea.getMinuman().getTopping() == null){
+                             info += "~~Thai Tea " + drinkThaiTea.getMinuman().getRasa() + " Tidak Pake Topping ";    
+                            }else{
+                        info += "~~Thai Tea " + drinkThaiTea.getMinuman().getRasa() + " " +drinkThaiTea.getMinuman().getTopping();    
+                    }
+                    
+                            
                 }
             }
             jTextAreaOrder.setText(info);
@@ -1200,7 +1281,9 @@ public class AppFoodTruck extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1233,5 +1316,8 @@ public class AppFoodTruck extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextAreaOrder;
     private javax.swing.JTextField jTextTebakanAnda;
+    private javax.swing.JLabel kunciJawaban;
+    private javax.swing.JLabel txtJamBuka;
+    private javax.swing.JLabel txtJamTutup;
     // End of variables declaration//GEN-END:variables
 }
