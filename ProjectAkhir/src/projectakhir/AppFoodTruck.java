@@ -8,11 +8,7 @@ package projectakhir;
 import GameTebakTebakan.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.text.NumberFormat;
 import javax.swing.ButtonGroup;
-import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 
 /**
@@ -35,8 +31,11 @@ public class AppFoodTruck extends javax.swing.JFrame {
     int tebakan;
     int jumlahtebakan = 5;
     boolean dapetDiskon;
+    
+    //polimorfisme
     Pembeli pembeliBiasa = new PembeliBiasa();
     Pembeli pembeliDiskon = new PembeliDiskon();
+    
     double totalHarga, finalHarga;
 
     public FoodTruck getJam() {
@@ -1182,10 +1181,12 @@ public class AppFoodTruck extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonOrderNowActionPerformed
     public void hasilBayar(IBayar b) {
         if (b instanceof PembeliBiasa) {
+            //casting object
             PembeliBiasa pb = (PembeliBiasa) b;
             finalHarga = pb.bayarSekarang(totalHarga);
 
         } else if (b instanceof PembeliDiskon) {
+            //casting object
             PembeliDiskon pd = (PembeliDiskon) b;
             finalHarga = pd.bayarSekarang(totalHarga);
         }
@@ -1194,6 +1195,7 @@ public class AppFoodTruck extends javax.swing.JFrame {
     private void jButtonTotalPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTotalPriceActionPerformed
         // TODO add your handling code here:
         totalHarga = thaiTea.getHarga() + taiwanChick.getHarga() + churros.getHarga();
+        //polimor calling method
         if (dapetDiskon == true) {
             hasilBayar(pembeliDiskon);
         } else {
