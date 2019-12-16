@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projectakhir;
 
 import GameTebakTebakan.*;
@@ -118,9 +113,6 @@ public class AppFoodTruck extends javax.swing.JFrame {
         this.tebakGame = tebakGame;
     }
 
-    /**
-     * Creates new form NoteWaitress
-     */
     public AppFoodTruck() {
         initComponents();
         
